@@ -18,14 +18,12 @@ import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 class MainActivity : AppCompatActivity(){
     private lateinit var mapView: MapView
     private lateinit var locationOverlay: MyLocationNewOverlay
-
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
             if (isGranted) {
                 activarCapadeUbicacion()
             }
         }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
@@ -34,6 +32,7 @@ class MainActivity : AppCompatActivity(){
         mapView = findViewById(R.id.map)
         mapView.setTileSource(TileSourceFactory.MAPNIK)
         mapView.setMultiTouchControls(true)
+
 
         val mapController = mapView.controller
         mapController.setZoom(16.0)
