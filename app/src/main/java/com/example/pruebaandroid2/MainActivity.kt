@@ -15,6 +15,13 @@ import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
+data class Lugar(
+    val nombre: String,
+    val latitud: Double,
+    val longutid: Double,
+    val iconoResId: Int
+)
+
 class MainActivity : AppCompatActivity(){
     private lateinit var mapView: MapView
     private lateinit var locationOverlay: MyLocationNewOverlay
@@ -33,7 +40,6 @@ class MainActivity : AppCompatActivity(){
         mapView.setTileSource(TileSourceFactory.MAPNIK)
         mapView.setMultiTouchControls(true)
 
-
         val mapController = mapView.controller
         mapController.setZoom(16.0)
         val startPoint = GeoPoint(-33.4430, -70.6533)
@@ -46,6 +52,7 @@ class MainActivity : AppCompatActivity(){
         startMarker.snippet = "Sede del Presidente de la República de Chile"
         startMarker.subDescription = "Edificio histórico y gubernamental"
         mapView.overlays.add(startMarker)
+        agregarMarcadores()
         mapView.invalidate()
 
         when{
@@ -70,6 +77,24 @@ class MainActivity : AppCompatActivity(){
                 mapView.controller.animateTo(locationOverlay.myLocation)
                 mapView.controller.setZoom(18.0)
             }
+        }
+    }
+    private fun agregarMarcadores(){
+        val lugares = listOf(
+            Lugar("Cerro San Cristóbal", -33.4246, -70.6346,R.drawable.ic_park),
+            Lugar("Costanera Center", -33.4170, -70.6068,R.drawable.ic_mall),
+            Lugar("Museo Nacional de Bellas Artes", -33.4357, -70.6397,R.drawable.ic_museum),
+            Lugar("Estadio Nacional", -33.4631, -70.6106,R.drawable.ic_stadium)
+        )
+        for (lugar in lugares){
+            val marker = Marker(mapView)
+            marker.position = GeoPoint(lugar.latitud, lugar.longutid)
+            marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+            marker.title = lugar.nombre
+
+            marker.icon = ContextCompat.getDrawable(this, lugar.iconoResId)
+
+            mapView.overlays.add(marker)
         }
     }
     override fun onResume() {
