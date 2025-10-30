@@ -1,6 +1,7 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -44,6 +45,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation("org.osmdroid:osmdroid-android:6.1.20")
     implementation("androidx.preference:preference-ktx:1.2.1")
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
+    implementation("com.google.firebase:firebase-analytics")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">PruebaAndroid2</string>
+    <string name="app_name">TouristMap</string>
+    <string name="logo">Logo</string>
+    <string name="acceder">Acceder</string>
 </resources>
