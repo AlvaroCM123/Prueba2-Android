@@ -9,4 +9,5 @@
     <string name="AppTitle">Tourist Map</string>
     <string name="no_tienes_cuenta">¿No tienes cuenta? &lt;b&gt;Regístrate aquí&lt;/b&gt;</string>
     <string name="createac">Regístrate</string>
+    <string name="cerrar_session">Cerrar Session</string>
 </resources>
