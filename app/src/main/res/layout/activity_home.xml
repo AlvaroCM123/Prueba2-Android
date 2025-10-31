@@ -12,7 +12,7 @@
   <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="¡Bienvenido!"
+      android:text="@string/bienvenido"
       android:textSize="28sp"
       android:textStyle="bold"
       android:layout_marginBottom="32dp"/>
@@ -36,10 +36,18 @@
       tools:text="BASIC" />
 
   <Button
+      android:id="@+id/btnGoToMap"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/ir_al_mapa"
+      android:textSize="16sp"
+      android:layout_marginBottom="8dp"/>
+
+  <Button
       android:id="@+id/btnLogout"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Cerrar Sesión"
+      android:text="@string/cerrar_session"
       android:textSize="16sp"/>
 
 </LinearLayout>

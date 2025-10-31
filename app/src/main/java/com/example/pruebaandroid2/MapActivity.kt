@@ -27,7 +27,7 @@ data class Lugar(
     val categoria: String
 )
 
-class MainActivity : AppCompatActivity(){
+class MapActivity : AppCompatActivity(){
     private lateinit var mapView: MapView
     private lateinit var locationOverlay: MyLocationNewOverlay
     private val todosLosLugares = listOf(
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Configuration.getInstance().load(this, PreferenceManager.getDefaultSharedPreferences(this))
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_map)
         mapView = findViewById(R.id.map)
         mapView.setTileSource(TileSourceFactory.MAPNIK)
         mapView.setMultiTouchControls(true)
@@ -124,12 +124,12 @@ class MainActivity : AppCompatActivity(){
         mapView.invalidate()
     }
     override fun onResume() {
-            super.onResume()
-            mapView.onResume()
-        }
+        super.onResume()
+        mapView.onResume()
+    }
 
     override fun onPause() {
-            super.onPause()
-            mapView.onPause()
-        }
+        super.onPause()
+        mapView.onPause()
     }
+}
